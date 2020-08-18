@@ -1,26 +1,68 @@
+import sys
+
 # TO-DO: Complete the selection_sort() function below
+# arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
+
+
 def selection_sort(arr):
     # loop through n-1 elements
+
+    # starts loop at start of array and end of array
     for i in range(0, len(arr) - 1):
+
+        # index starts at zero for both variables
         cur_index = i
         smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
 
+        # starts at index 1 and begins to compare to index 0
+        for j in range(cur_index + 1, len(arr)):
 
-        # TO-DO: swap
-        # Your code here
+            # compares cur_index to smallest index and moves on if true
+            if arr[j] < arr[smallest_index]:
+
+                # updates j to current index
+                smallest_index = j
+
+        #     # TO-DO: swap
+        #     # Your code here
+
+        # swaps cur_index & smallest_index
+        arr[smallest_index], arr[cur_index] = arr[cur_index], arr[smallest_index]
 
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
+# arr = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
+
 def bubble_sort(arr):
     # Your code here
 
+    # finds the length of the array and holds the last spot
+    for j in range(len(arr)-1, 0, -1):
+
+        # loops from index[0]
+        for i in range(j):
+
+            # checks if number next in line is bigger
+            if arr[i] > arr[i+1]:
+
+                # <------------------>
+                # 1       #2        #1          #2
+                #         <--------------------->
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+
+                # #eight is held in temp var
+                # temp = arr[i]
+
+                # #four is moved forwards
+                # arr[i] = arr[i+1]
+
+                # #moves temp up one space (8)
+                # arr[i+1] = temp
 
     return arr
+
 
 '''
 STRETCH: implement the Counting Sort function below
@@ -39,8 +81,9 @@ buckets.
 
 What is the time and space complexity of the counting sort algorithm?
 '''
+
+
 def counting_sort(arr, maximum=None):
     # Your code here
-
 
     return arr
